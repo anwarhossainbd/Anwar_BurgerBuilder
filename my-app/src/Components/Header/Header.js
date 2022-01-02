@@ -22,6 +22,7 @@ const Header = () => {
                             <NavLink exact to="/" className="textDec" activeStyle={{color:"wheat"}} style={{color:"white",fontSize:"18px",paddingRight:"20px",textDecoration:"none"}} >Burger Builder</NavLink>
                             <NavLink exact to="/orders" className="textDec" activeStyle={{color:"wheat"}} style={{color:"white",fontSize:"18px",paddingRight:"20px",textDecoration:"none"}} >Orders</NavLink>
 
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
