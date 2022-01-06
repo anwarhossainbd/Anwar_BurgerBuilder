@@ -29,37 +29,16 @@ class BurgerBuilder extends Component {
         modalOpen: false,
     }
 
-    // updatePurchasable = ingredients => {
-    //     const sum = ingredients.reduce((sum, element) => {
-    //         return sum + element.amount;
-    //     }, 0);
-    //     this.setState({ purchasable: sum > 0 })
-    // }
-
 
     addIngredientHandle=type=>{
        this.props.addIngredient(type);
+       this.props.updatePurchasable();
 
     }
 
     removeIngredientHandle=type=>{
-        const ingredients =[...this.state.ingredients];
-        const newPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
-        for (let item of ingredients){
-            if (item.type===type){
-                if (item.amount<=0){
-                    return item
-                }
-                else {
-                     item.amount--;
-                }
-            }
-        }
-        this.setState({
-            ingredients:ingredients,
-            totalPrice: newPrice
-        })
-        this.updatePurchasable(ingredients);
+        this.props.removeIngredient(type);
+        this.props.updatePurchasable();
     }
 
     toggleModal = () => {
@@ -95,7 +74,7 @@ class BurgerBuilder extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="success" onClick={this.handleCheckout}>Continue to Checkout</Button>
-                        <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+                        <Button style={{ backgroundColor: "#D70F64" }} onClick={this.toggleModal}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
 

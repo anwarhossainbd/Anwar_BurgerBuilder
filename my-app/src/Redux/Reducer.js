@@ -33,7 +33,32 @@ export const Reducer =(state=INITIAL_STATE,action)=>{
             }
 
 
+        case ActionTypes.REMOVE_INGREDIENT:
 
+            for (let item of ingredients){
+                if (item.type===action.payload){
+                    if (item.amount<=0){
+                        return state
+                    }
+                    else {
+                        item.amount--;
+                    }
+                }
+            }
+            return {
+                ...state,
+                ingredients: ingredients,
+                totalPrice: state.totalPrice-INGREDIENT_PRICES[action.payload]
+            }
+
+        case ActionTypes.UPDATE_PURCHASABLE:
+            const sum=state.ingredients.reduce((sum,element)=>{
+                return sum+ element.amount
+            },0)
+            return {
+                ...state,
+                purchasable:sum>0,
+            }
 
         default: return state ;
     }
