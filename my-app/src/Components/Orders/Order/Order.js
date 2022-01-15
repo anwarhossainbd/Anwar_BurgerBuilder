@@ -1,6 +1,4 @@
 import React, {Fragment} from 'react';
-import {Col, Container, Row} from "react-bootstrap";
-import {Card, CardBody} from "reactstrap";
 
 const Order = (props) => {
 
