@@ -44,7 +44,7 @@ class Orders extends Component {
             }} >Sorry Failed to Load Orders!</p>
         }
         else {
-            if (this.props.orders.length===0){
+            if (this.props.orders.length=== 0){
                 order=<p style={{
                     border: "1px solid grey",
                     boxShadow: "1px 1px #888888",
@@ -57,8 +57,8 @@ class Orders extends Component {
                 order=this.props.orders.map(order=>{
                     return <Order order={order} key={order.id}/>
 
-                })
-            }
+                 })
+              }
         }
 
 
